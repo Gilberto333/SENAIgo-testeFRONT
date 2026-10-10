@@ -1,0 +1,3 @@
+.content { display: flex; flex-direction: column; gap: 20px; }
+.message { color: var(--text-muted); line-height: 1.5; }
+.actions { display: flex; justify-content: flex-end; gap: 12px; }

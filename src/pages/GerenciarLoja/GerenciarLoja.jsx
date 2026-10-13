@@ -86,7 +86,6 @@ const GerenciarLoja = () => {
       </main>
 
       <ProdutoFormModal isOpen={formAberto} produto={produtoEmEdicao} onSubmit={handleSalvar} onClose={fecharForm} />
-
       <ConfirmModal isOpen={Boolean(produtoParaRemover)} title="Remover produto" confirmLabel="Remover" variant="danger" loading={removendo} onConfirm={handleRemover} onCancel={() => { if (!removendo) setProdutoParaRemover(null); }}>
         {produtoParaRemover && <>Tem certeza que deseja remover <strong>{produtoParaRemover.nome}</strong>? O histórico de resgates já feitos é mantido.</>}
       </ConfirmModal>

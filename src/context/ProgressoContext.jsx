@@ -60,7 +60,11 @@ export const ProgressoProvider = ({ children }) => {
     setPontos(await saldoService.obterSaldo());
   }, []);
 
-  const visitedRooms = useMemo(() => [...new Set(visits.map((v) => v.salaId))], [visits]);
+  // Salas desativadas deixam de contar no progresso (os pontos já ganhos continuam no saldo).
+  const visitedRooms = useMemo(
+    () => [...new Set(visits.map((v) => v.salaId))].filter((id) => salas.some((s) => s.salaId === id)),
+    [visits, salas],
+  );
 
   const registrarVisita = useCallback(async ({ salaId }) => {
     if (visitedRooms.includes(salaId)) {

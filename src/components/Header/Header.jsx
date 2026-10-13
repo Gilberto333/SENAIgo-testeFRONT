@@ -27,8 +27,8 @@ const Header = () => {
         <div className={styles.rightSection}>
           <div className={styles.pointsPill}><Trophy size={16} className={styles.trophyIcon} /><span><strong>{saldo}</strong> pts</span></div>
           <nav className={styles.navLinks}>
-            {isAdmin && <Link to="/admin/loja" className={`${styles.navBtn} ${location.pathname === '/admin/loja' ? styles.active : ''}`}><Settings size={18} /><span>Gerenciar</span></Link>}
-            <Link to="/loja" className={`${styles.navBtn} ${location.pathname === '/loja' ? styles.active : ''}`}><ShoppingBag size={18} /><span>Loja</span></Link>
+            {isAdmin && <Link to="/admin/loja" aria-label="Gerenciar" className={`${styles.navBtn} ${location.pathname.startsWith('/admin') ? styles.active : ''}`}><Settings size={18} /><span>Gerenciar</span></Link>}
+            <Link to="/loja" aria-label="Loja" className={`${styles.navBtn} ${location.pathname === '/loja' ? styles.active : ''}`}><ShoppingBag size={18} /><span>Loja</span></Link>
             <button onClick={handleLogout} className={styles.logoutBtn} title="Sair"><LogOut size={18} /></button>
           </nav>
         </div>

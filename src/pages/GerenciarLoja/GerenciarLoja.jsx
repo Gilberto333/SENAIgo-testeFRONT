@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useProdutos } from '../../hooks/useProdutos';
 import Header from '../../components/Header/Header';
+import AdminTabs from '../../components/AdminTabs/AdminTabs';
 import Card from '../../components/Card/Card';
 import Button from '../../components/Button/Button';
 import Alert from '../../components/Alert/Alert';
@@ -46,6 +47,7 @@ const GerenciarLoja = () => {
     <div className={styles.pageContainer}>
       <Header />
       <main className={styles.mainContent}>
+        <AdminTabs />
         <div className={styles.titleRow}>
           <div>
             <h2>Gerenciar Loja</h2>

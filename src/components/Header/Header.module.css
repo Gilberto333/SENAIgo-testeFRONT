@@ -14,3 +14,19 @@
 .navBtn:hover, .navBtn.active { background-color: var(--primary-blue); color: #ffffff; }
 .logoutBtn { display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: var(--radius-md); border: none; background-color: transparent; color: #EF4444; cursor: pointer; transition: all 0.2s; }
 .logoutBtn:hover { background-color: #FEF2F2; }
+@media (max-width: 768px) {
+  .container { flex-wrap: wrap; padding: 10px 16px; gap: 10px; }
+  .centerSection { order: 3; width: 100%; gap: 8px; }
+  .greetingBox { flex: 1; min-width: 0; font-size: 0.82rem; padding: 5px 12px; }
+  .greetingBox span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .badgeVisitas { white-space: nowrap; font-size: 0.8rem; padding: 5px 12px; }
+  .rightSection { gap: 8px; }
+  .pointsPill { white-space: nowrap; padding: 5px 12px; font-size: 0.85rem; }
+  .navLinks { gap: 4px; }
+  .navBtn { padding: 8px; }
+  .navBtn span { display: none; }
+}
+
+@media (max-width: 400px) {
+  .badgeLabel { display: none; }
+}

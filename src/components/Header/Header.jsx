@@ -22,7 +22,7 @@ const Header = () => {
         <div className={styles.leftSection}><Link to="/home"><Logo size="small" /></Link></div>
         <div className={styles.centerSection}>
           <div className={styles.greetingBox}><User className={styles.userIcon} size={18} /><span>Olá, <strong>{user?.nome || 'Aluno'}</strong></span></div>
-          <div className={styles.badgeVisitas}><MapPin size={16} className={styles.badgeIcon} /><span><strong>{salasVisitadasCount}</strong> / {totalSalasDisponiveis} áreas visitadas</span></div>
+          <div className={styles.badgeVisitas} title="Áreas visitadas"><MapPin size={16} className={styles.badgeIcon} /><span><strong>{salasVisitadasCount}</strong> / {totalSalasDisponiveis}<span className={styles.badgeLabel}> áreas visitadas</span></span></div>
         </div>
         <div className={styles.rightSection}>
           <div className={styles.pointsPill}><Trophy size={16} className={styles.trophyIcon} /><span><strong>{saldo}</strong> pts</span></div>

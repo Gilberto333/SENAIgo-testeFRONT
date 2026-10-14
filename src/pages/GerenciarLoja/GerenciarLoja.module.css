@@ -10,3 +10,9 @@
 .info { flex: 1; min-width: 160px; display: flex; flex-direction: column; color: var(--primary-blue); }
 .info small { color: var(--text-muted); }
 .actions { display: flex; gap: 8px; }
+@media (max-width: 768px) {
+  .mainContent { padding: 20px 16px; gap: 16px; }
+  .titleRow > button { width: 100%; }
+  .actions { width: 100%; flex-wrap: wrap; }
+  .actions button { flex: 1 1 auto; min-width: 0; }
+}

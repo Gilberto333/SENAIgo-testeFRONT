@@ -6,3 +6,9 @@ export const resgatarProduto = ({ produtoId }) =>
 
 // GET /resgates -> resgates do usuário logado
 export const listarResgates = () => api.get('/resgates').then(({ data }) => data);
+
+// GET /admin/resgates/cpf/:cpf -> consulta resgates de um usuário pelo CPF (Acesso Admin)
+export const consultarResgatesPorCpf = (cpf) => {
+  const cpfLimpo = String(cpf).replace(/\D/g, '');
+  return api.get(`/admin/resgates/cpf/${cpfLimpo}`).then(({ data }) => data);
+};

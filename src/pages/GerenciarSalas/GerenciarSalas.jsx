@@ -25,7 +25,7 @@ const GerenciarSalas = () => {
   const abrirNova = () => { setSalaEmEdicao(null); setFormAberto(true); };
   const abrirEdicao = (sala) => { setSalaEmEdicao(sala); setFormAberto(true); };
 
-  // Erros são lançados de volta para o formulário exibir a mensagem da API.
+  
   const handleSalvar = async (dados) => {
     const resposta = salaEmEdicao ? await atualizar(salaEmEdicao.salaId, dados) : await cadastrar(dados);
     setFeedback({ variant: 'success', message: resposta.sucesso });

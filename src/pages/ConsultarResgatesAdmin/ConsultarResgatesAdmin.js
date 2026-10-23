@@ -90,4 +90,5 @@ const ConsultarResgatesAdmin = () => {
   );
 };
 
+
 export default ConsultarResgatesAdmin;

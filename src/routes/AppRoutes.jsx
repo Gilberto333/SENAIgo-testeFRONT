@@ -7,6 +7,7 @@ import Home from '../pages/Home/Home';
 import Loja from '../pages/Loja/Loja';
 import GerenciarLoja from '../pages/GerenciarLoja/GerenciarLoja';
 import GerenciarSalas from '../pages/GerenciarSalas/GerenciarSalas';
+import ConsultarResgatesAdmin from '../pages/ConsultarResgatesAdmin/ConsultarResgatesAdmin';
 import PrivateRoute from './PrivateRoute';
 
 const AppRoutes = () => (
@@ -19,8 +20,10 @@ const AppRoutes = () => (
       <Route path="/loja" element={<PrivateRoute><Loja /></PrivateRoute>} />
       <Route path="/admin/loja" element={<PrivateRoute adminOnly><GerenciarLoja /></PrivateRoute>} />
       <Route path="/admin/salas" element={<PrivateRoute adminOnly><GerenciarSalas /></PrivateRoute>} />
+      <Route path="/admin/resgates" element={<PrivateRoute adminOnly><ConsultarResgatesAdmin /></PrivateRoute>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   </BrowserRouter>
 );
+
 export default AppRoutes;

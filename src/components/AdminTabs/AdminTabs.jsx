@@ -6,6 +6,7 @@ const AdminTabs = () => (
   <nav className={styles.tabs}>
     <NavLink to="/admin/loja" className={({ isActive }) => `${styles.tab} ${isActive ? styles.active : ''}`}>Produtos</NavLink>
     <NavLink to="/admin/salas" className={({ isActive }) => `${styles.tab} ${isActive ? styles.active : ''}`}>Salas</NavLink>
+    <NavLink to="/admin/resgates" className={({ isActive }) => `${styles.tab} ${isActive ? styles.active : ''}`}>Consultar Resgates</NavLink>
   </nav>
 );
 

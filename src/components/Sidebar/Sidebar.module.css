@@ -15,6 +15,10 @@
 .menuItem:hover, .menuItem.active { background-color: var(--primary-blue); color: #ffffff; }
 .menuItem:hover .menuIcon, .menuItem.active .menuIcon { color: #ffffff; }
 
+.menuItem.backItem { margin-left: 12px; color: #D97706; }
+.backItem .menuIcon { color: #D97706; }
+.menuItem.backItem:hover { background-color: #D97706; color: #ffffff; }
+
 .footer { margin-top: auto; padding: 12px; padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--border-color); }
 .logoutBtn { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border: none; border-radius: var(--radius-md); background-color: transparent; color: #EF4444; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
 .logoutBtn:hover { background-color: #FEF2F2; }

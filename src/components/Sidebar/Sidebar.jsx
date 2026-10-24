@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { MapPin, LogOut, X } from 'lucide-react';
+import { MapPin, LogOut, X, ArrowLeft } from 'lucide-react'; // Alterado: adicionado ArrowLeft (ícone do botão "Voltar")
 import styles from './Sidebar.module.css';
 
 const Sidebar = ({ isOpen, onClose }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const isSalasVisitas = location.pathname === '/salas-visitas';
 
   useEffect(() => {
     if (!isOpen) return;
@@ -43,6 +45,13 @@ const Sidebar = ({ isOpen, onClose }) => {
             <MapPin size={20} className={styles.menuIcon} />
             <span>Salas Visitadas</span>
           </Link>
+
+          {isSalasVisitas && (
+            <Link to="/home" onClick={onClose} className={`${styles.menuItem} ${styles.backItem}`}>
+              <ArrowLeft size={20} className={styles.menuIcon} />
+              <span>Voltar</span>
+            </Link>
+          )}
         </nav>
 
       

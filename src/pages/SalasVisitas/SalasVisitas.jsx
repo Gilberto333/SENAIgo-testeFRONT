@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // Alterado: useEffect e useRef para saber se um carregamento já terminou
+import React, { useState, useEffect, useRef } from 'react'; 
 import { useProgresso } from '../../hooks/useProgresso';
 import Header from '../../components/Header/Header';
 import Alert from '../../components/Alert/Alert';
@@ -16,7 +16,7 @@ const SecaoSalas = ({ id, titulo, icone: Icone, aberta, onToggle, salas, mensage
       <div id={id} className={styles.sectionBody}>
         {salas.length === 0
           ? <p className={styles.emptyText}>{mensagemVazia}</p>
-          : <ul className={styles.roomList}>{salas.map((sala) => <li key={sala.salaId} className={styles.roomItem}>{sala.nome}</li>)}</ul>}
+          : <ul className={styles.roomList}>{salas.map((sala) => <li key={sala.salaId} className={styles.roomItem}>{sala.sala}</li>)}</ul>} {/* Alterado: o nome da sala vem no campo "sala" (antes: sala.nome) */}
       </div>
     )}
   </section>
@@ -27,7 +27,6 @@ const SalasVisitas = () => {
   const [aberta, setAberta] = useState({ visitadas: false, faltantes: false });
   const alternar = (chave) => setAberta((prev) => ({ ...prev, [chave]: !prev[chave] }));
 
-  // Alterado: marca que um carregamento começou e terminou (evita mostrar "sem salas" antes da busca)
   const iniciouCarregamento = useRef(false);
   const [carregamentoConcluido, setCarregamentoConcluido] = useState(false);
   useEffect(() => {
@@ -38,7 +37,6 @@ const SalasVisitas = () => {
   const salasVisitadas = salas.filter((sala) => visitedRooms.includes(sala.salaId));
   const salasFaltantes = salas.filter((sala) => !visitedRooms.includes(sala.salaId));
 
-  // Alterado: substitui a variável semDados
   const semSalas = carregamentoConcluido && !loading && !error && salas.length === 0;
 
   return (
@@ -47,14 +45,11 @@ const SalasVisitas = () => {
       <main className={styles.mainContent}>
         <h2 className={styles.pageTitle}><MapPin size={24} /><span>Salas Visitadas</span></h2>
 
-        {/* temporário: diagnóstico, remover depois */}
-        <pre style={{ fontSize: 12, whiteSpace: 'pre-wrap' }}>{JSON.stringify({ loading, error, salas, visitedRooms }, null, 2)}</pre>
-
-        {loading && salas.length === 0 && <Alert variant="info">Carregando salas...</Alert>} {/* Alterado: só mostra se ainda não há dados */}
+        {loading && salas.length === 0 && <Alert variant="info">Carregando salas...</Alert>} 
         {error && <Alert variant="error">{error}</Alert>}
-        {semSalas && <Alert variant="info">Nenhuma sala disponível no momento.</Alert>} {/* Alterado: caso a API não retorne salas */}
+        {semSalas && <Alert variant="info">Nenhuma sala disponível no momento.</Alert>} 
 
-        {salas.length > 0 && ( // Alterado: as seções só aparecem quando já existem salas (também durante recarregamentos)
+        {salas.length > 0 && ( 
           <>
             <SecaoSalas
               id="secao-visitadas"

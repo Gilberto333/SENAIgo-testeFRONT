@@ -47,13 +47,13 @@ const Header = () => {
           
             <Link
               to={isLoja ? '/home' : '/loja'}
-              aria-label={isLoja ? 'Voltar' : 'Resgatar Prêmios'}
+              aria-label={isLoja ? 'Voltar' : 'Resgatar Brindes'}
               className={`${styles.rewardBtn} ${isLoja ? styles.backBtn : ''}`}
             >
               {isLoja
                 ? <ArrowLeft size={18} className={styles.rewardIcon} />
                 : <Gift size={18} className={styles.rewardIcon} />}
-              <span>{isLoja ? 'Voltar' : 'Resgatar Prêmios'}</span>
+              <span>{isLoja ? 'Voltar' : 'Resgatar Brindes'}</span>
             </Link>
             
           </nav>

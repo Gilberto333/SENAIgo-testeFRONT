@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Alterado: useEffect e useRef para saber se um carregamento já terminou
 import { useProgresso } from '../../hooks/useProgresso';
 import Header from '../../components/Header/Header';
 import Alert from '../../components/Alert/Alert';
@@ -24,14 +24,23 @@ const SecaoSalas = ({ id, titulo, icone: Icone, aberta, onToggle, salas, mensage
 
 const SalasVisitas = () => {
   const { salas, visitedRooms, loading, error } = useProgresso();
-  console.log({ loading, error, totalSalas: salas.length, visitedRooms }); // temporário: diagnóstico
+  // Alterado: removido o console.log de diagnóstico
   const [aberta, setAberta] = useState({ visitadas: false, faltantes: false });
   const alternar = (chave) => setAberta((prev) => ({ ...prev, [chave]: !prev[chave] }));
+
+  // Alterado: marca que um carregamento começou e terminou (evita mostrar "sem salas" antes da busca)
+  const iniciouCarregamento = useRef(false);
+  const [carregamentoConcluido, setCarregamentoConcluido] = useState(false);
+  useEffect(() => {
+    if (loading) iniciouCarregamento.current = true;
+    else if (iniciouCarregamento.current) setCarregamentoConcluido(true);
+  }, [loading]);
 
   const salasVisitadas = salas.filter((sala) => visitedRooms.includes(sala.salaId));
   const salasFaltantes = salas.filter((sala) => !visitedRooms.includes(sala.salaId));
 
-  const semDados = Boolean(error) && salas.length === 0;
+  // Alterado: substitui a variável semDados
+  const semSalas = carregamentoConcluido && !loading && !error && salas.length === 0;
 
   return (
     <div className={styles.pageContainer}>
@@ -39,10 +48,11 @@ const SalasVisitas = () => {
       <main className={styles.mainContent}>
         <h2 className={styles.pageTitle}><MapPin size={24} /><span>Salas Visitadas</span></h2>
 
-        {loading && <Alert variant="info">Carregando salas...</Alert>}
+        {loading && salas.length === 0 && <Alert variant="info">Carregando salas...</Alert>} {/* Alterado: só mostra se ainda não há dados */}
         {error && <Alert variant="error">{error}</Alert>}
+        {semSalas && <Alert variant="info">Nenhuma sala disponível no momento.</Alert>} {/* Alterado: caso a API não retorne salas */}
 
-        {!loading && !semDados && (
+        {salas.length > 0 && ( // Alterado: as seções só aparecem quando já existem salas (também durante recarregamentos)
           <>
             <SecaoSalas
               id="secao-visitadas"

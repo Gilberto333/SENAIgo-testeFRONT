@@ -73,7 +73,7 @@ const Home = () => {
           <div className={styles.bannerInfo}>
             <div className={styles.tagGroup}><Sparkles size={16} /><span>Jornada de Gamificação</span></div>
             <h2>Explore as Áreas e Ganhe Pontos</h2>
-            <p>Escaneie os QR Codes localizados nos ambientes do SENAI para acumular pontos e subir de nível.</p>
+            <p>Escaneie os QR Codes localizados nos ambientes do SENAI para acumular pontos e resgatar brindes.</p>
           </div>
           <div className={styles.progressCard}>
             <ProgressBar current={visitedRooms.length} total={salas.length} label="Progresso de Visitas" />

@@ -25,6 +25,12 @@
 .rewardBtn.backBtn:hover { background-color: #B45309; }
 .backBtn .rewardIcon { color: #ffffff; }
 
+.navBtn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; color: var(--primary-blue); transition: all 0.2s; }
+.navBtn:hover, .navBtn.active { background-color: var(--primary-blue); color: #ffffff; }
+
+.navBtn.adminBackBtn { background-color: #D97706; color: #ffffff; }
+.navBtn.adminBackBtn:hover { background-color: #B45309; }
+
 
 @media (max-width: 768px) {
   .container { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 8px 12px; }

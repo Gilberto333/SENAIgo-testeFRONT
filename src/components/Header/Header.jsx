@@ -13,6 +13,7 @@ const Header = () => {
   const location = useLocation();
 
   const isLoja = location.pathname === '/loja';
+  const isAdminArea = location.pathname.startsWith('/admin'); 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
@@ -43,7 +44,17 @@ const Header = () => {
         <div className={styles.rightSection}>
           <div className={styles.pointsPill}><Trophy size={16} className={styles.trophyIcon} /><span><strong>{saldo}</strong> pts</span></div>
           <nav className={styles.navLinks}>
-            {isAdmin && <Link to="/admin/loja" aria-label="Gerenciar" className={`${styles.navBtn} ${location.pathname.startsWith('/admin') ? styles.active : ''}`}><Settings size={18} /><span>Gerenciar</span></Link>}
+            
+            {isAdmin && (
+              <Link
+                to={isAdminArea ? '/home' : '/admin/loja'}
+                aria-label={isAdminArea ? 'Voltar' : 'Gerenciar'}
+                className={`${styles.navBtn} ${isAdminArea ? styles.adminBackBtn : ''}`}
+              >
+                {isAdminArea ? <ArrowLeft size={18} /> : <Settings size={18} />}
+                <span>{isAdminArea ? 'Voltar' : 'Gerenciar'}</span>
+              </Link>
+            )}
           
             <Link
               to={isLoja ? '/home' : '/loja'}

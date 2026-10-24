@@ -24,6 +24,7 @@ const SecaoSalas = ({ id, titulo, icone: Icone, aberta, onToggle, salas, mensage
 
 const SalasVisitas = () => {
   const { salas, visitedRooms, loading, error } = useProgresso();
+  console.log({ loading, error, totalSalas: salas.length, visitedRooms }); // temporário: diagnóstico
   const [aberta, setAberta] = useState({ visitadas: false, faltantes: false });
   const alternar = (chave) => setAberta((prev) => ({ ...prev, [chave]: !prev[chave] }));
 

@@ -24,6 +24,15 @@ const SecaoSalas = ({ id, titulo, icone: Icone, aberta, onToggle, salas, mensage
 
 const SalasVisitas = () => {
   const { salas, visitedRooms, loading, error } = useProgresso();
+
+
+{/* temporário: diagnóstico, remover depois */}
+<pre style={{ fontSize: 12, whiteSpace: 'pre-wrap' }}>{JSON.stringify({ loading, error, salas, visitedRooms }, null, 2)}</pre>
+
+
+
+
+
   // Alterado: removido o console.log de diagnóstico
   const [aberta, setAberta] = useState({ visitadas: false, faltantes: false });
   const alternar = (chave) => setAberta((prev) => ({ ...prev, [chave]: !prev[chave] }));

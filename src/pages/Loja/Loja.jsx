@@ -45,7 +45,7 @@ const Loja = () => {
           <div className={styles.bannerInfo}>
             <div className={styles.tagLoja}><Sparkles size={16} /><span>Loja de Recompensas</span></div>
             <h2>Troque seus pontos por Brindes</h2>
-            <p>Sua participação nas salas do SENAI garante brindes e prêmios exclusivos!</p>
+            <p>Sua participação nas salas do SENAI garante brindes! Resgate seu brinde abaixo e apresente-se na lojinha do SENAI para fazer a retirada.</p>
           </div>
           <div className={styles.saldoPill}>
             <Trophy size={20} />

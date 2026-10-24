@@ -8,7 +8,7 @@ const ScannerButton = ({ isVisited, onClick, disabled = false }) => {
     return (
       <div className={styles.visitedBadge}>
         <CheckCircle2 size={18} className={styles.checkIcon} />
-        <span>Visitado ✔️</span>
+        <span>Visitado </span>
       </div>
     );
   }

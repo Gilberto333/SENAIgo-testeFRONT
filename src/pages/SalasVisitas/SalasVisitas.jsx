@@ -24,16 +24,6 @@ const SecaoSalas = ({ id, titulo, icone: Icone, aberta, onToggle, salas, mensage
 
 const SalasVisitas = () => {
   const { salas, visitedRooms, loading, error } = useProgresso();
-
-
-{/* temporário: diagnóstico, remover depois */}
-<pre style={{ fontSize: 12, whiteSpace: 'pre-wrap' }}>{JSON.stringify({ loading, error, salas, visitedRooms }, null, 2)}</pre>
-
-
-
-
-
-  // Alterado: removido o console.log de diagnóstico
   const [aberta, setAberta] = useState({ visitadas: false, faltantes: false });
   const alternar = (chave) => setAberta((prev) => ({ ...prev, [chave]: !prev[chave] }));
 
@@ -56,6 +46,9 @@ const SalasVisitas = () => {
       <Header />
       <main className={styles.mainContent}>
         <h2 className={styles.pageTitle}><MapPin size={24} /><span>Salas Visitadas</span></h2>
+
+        {/* temporário: diagnóstico, remover depois */}
+        <pre style={{ fontSize: 12, whiteSpace: 'pre-wrap' }}>{JSON.stringify({ loading, error, salas, visitedRooms }, null, 2)}</pre>
 
         {loading && salas.length === 0 && <Alert variant="info">Carregando salas...</Alert>} {/* Alterado: só mostra se ainda não há dados */}
         {error && <Alert variant="error">{error}</Alert>}

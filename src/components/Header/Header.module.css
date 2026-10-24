@@ -1,9 +1,13 @@
 .header { background-color: #ffffff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
 .container { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.leftSection { display: flex; align-items: center; }
+.leftSection { display: flex; align-items: center; gap: 12px; } 
 .centerSection { display: flex; align-items: center; gap: 20px; }
 .greetingBox { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--primary-blue); background-color: rgba(45, 67, 115, 0.06); padding: 6px 14px; border-radius: 20px; }
 .userIcon { color: var(--primary-blue); }
+
+
+.menuBtn { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; border: 1px solid var(--border-color); border-radius: var(--radius-md); background-color: var(--bg-light); color: var(--primary-blue); cursor: pointer; transition: all 0.2s; }
+.menuBtn:hover { background-color: var(--primary-blue); border-color: var(--primary-blue); color: #ffffff; }
 
 .rightSection { display: flex; align-items: center; gap: 16px; }
 .pointsPill { display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #B45309; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid #FCD34D; }
@@ -24,7 +28,8 @@
 
 @media (max-width: 768px) {
   .container { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 8px 12px; }
-  .leftSection { grid-column: 1; grid-row: 1; }
+  .leftSection { grid-column: 1; grid-row: 1; gap: 8px; } 
+  .menuBtn { width: 36px; height: 36px; }
   .rightSection { display: contents; } 
   .pointsPill { grid-column: 2; grid-row: 1; justify-self: end; white-space: nowrap; padding: 5px 12px; font-size: 0.85rem; }
   .centerSection { grid-column: 1; grid-row: 2; min-width: 0; }
@@ -37,6 +42,8 @@
 }
 
 @media (max-width: 360px) {
+  .leftSection { gap: 6px; } 
+  .menuBtn { width: 34px; height: 34px; } 
   .userIcon { display: none; }
   .greetingBox { padding: 5px 10px; font-size: 0.78rem; }
   .pointsPill { padding: 4px 10px; font-size: 0.8rem; }

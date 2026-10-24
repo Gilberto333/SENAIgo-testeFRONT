@@ -1,0 +1,23 @@
+.pageContainer { min-height: 100vh; background-color: var(--bg-light); }
+.mainContent { max-width: 720px; margin: 0 auto; padding: 24px 16px 40px; display: flex; flex-direction: column; gap: 16px; }
+.pageTitle { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 1.35rem; color: var(--primary-blue); }
+
+.section { background-color: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); overflow: hidden; }
+.sectionBtn { display: flex; align-items: center; gap: 10px; width: 100%; padding: 14px 16px; border: none; background-color: transparent; color: var(--primary-blue); font-size: 1rem; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 0.2s; }
+.sectionBtn:hover { background-color: rgba(45, 67, 115, 0.06); }
+.sectionIcon { color: var(--terracotta); flex-shrink: 0; }
+.sectionLabel { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.chevron { flex-shrink: 0; color: var(--text-muted); transition: transform 0.2s; }
+.chevronOpen { transform: rotate(180deg); }
+
+.sectionBody { padding: 4px 16px 16px; border-top: 1px solid var(--border-color); }
+.roomList { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.roomItem { padding: 10px 14px; background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 0.92rem; color: var(--primary-blue); overflow-wrap: anywhere; }
+.emptyText { margin: 12px 0 0; font-size: 0.92rem; color: var(--text-muted); }
+
+@media (max-width: 360px) {
+  .mainContent { padding: 16px 12px 32px; gap: 12px; }
+  .pageTitle { font-size: 1.15rem; }
+  .sectionBtn { padding: 12px; font-size: 0.92rem; }
+  .sectionBody { padding: 4px 12px 12px; }
+}

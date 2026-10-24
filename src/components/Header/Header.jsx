@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react'; 
    import { useAuth } from '../../hooks/useAuth';
 import { Link, useLocation } from 'react-router-dom';
 import { useProgresso } from '../../hooks/useProgresso';
 import Logo from '../Logo/Logo';
-import { Gift, ArrowLeft, Trophy, User, Settings } from 'lucide-react'; // Alterado: adicionado ArrowLeft (ícone do botão "Voltar")
+import Sidebar from '../Sidebar/Sidebar'; 
+import { Gift, ArrowLeft, Trophy, User, Settings, Menu } from 'lucide-react';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -13,10 +14,28 @@ const Header = () => {
 
   const isLoja = location.pathname === '/loja';
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+
+  useEffect(() => { setIsMenuOpen(false); }, [location.pathname]);
+
   return (
+    <> 
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.leftSection}><Link to="/home"><Logo size="small" /></Link></div>
+        <div className={styles.leftSection}>
+          <button
+            type="button"
+            className={styles.menuBtn}
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="sidebar-menu"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <Menu size={22} />
+          </button>
+          <Link to="/home"><Logo size="small" /></Link>
+        </div>
         <div className={styles.centerSection}>
           <div className={styles.greetingBox}><User className={styles.userIcon} size={18} /><span>Olá, <strong>{user?.nome || 'Aluno'}</strong></span></div>
          
@@ -41,6 +60,8 @@ const Header = () => {
         </div>
       </div>
     </header>
+    <Sidebar isOpen={isMenuOpen} onClose={closeMenu} />
+    </>
   );
 };
 export default Header;

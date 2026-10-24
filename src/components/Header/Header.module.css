@@ -4,7 +4,7 @@
 .centerSection { display: flex; align-items: center; gap: 20px; }
 .greetingBox { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--primary-blue); background-color: rgba(45, 67, 115, 0.06); padding: 6px 14px; border-radius: 20px; }
 .userIcon { color: var(--primary-blue); }
-/* Alterado: removidos .badgeVisitas, .badgeIcon, .badgeLabel e .logoutBtn (elementos saíram do Header) */
+
 .rightSection { display: flex; align-items: center; gap: 16px; }
 .pointsPill { display: flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #B45309; padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; border: 1px solid #FCD34D; }
 .trophyIcon { color: #D97706; }
@@ -12,16 +12,16 @@
 .navBtn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; color: var(--primary-blue); transition: all 0.2s; }
 .navBtn:hover, .navBtn.active { background-color: var(--primary-blue); color: #ffffff; }
 
-/* Alterado: botão "Resgatar Prêmios" (azul da marca, ícone dourado igual ao dos pontos) */
+
 .rewardBtn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; white-space: nowrap; color: #ffffff; background-color: var(--primary-blue); transition: all 0.2s; }
 .rewardIcon { color: #FDE68A; flex-shrink: 0; }
 .rewardBtn:hover, .rewardActive { background-color: var(--terracotta); }
 
-/* Alterado: layout mobile em grade (linha 1: logo + pontos | linha 2: saudação + botões) */
+
 @media (max-width: 768px) {
   .container { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 8px 12px; }
   .leftSection { grid-column: 1; grid-row: 1; }
-  .rightSection { display: contents; } /* Alterado: pontos e nav viram itens diretos da grade */
+  .rightSection { display: contents; } 
   .pointsPill { grid-column: 2; grid-row: 1; justify-self: end; white-space: nowrap; padding: 5px 12px; font-size: 0.85rem; }
   .centerSection { grid-column: 1; grid-row: 2; min-width: 0; }
   .greetingBox { flex: 1; min-width: 0; font-size: 0.82rem; padding: 5px 12px; }
@@ -29,10 +29,9 @@
   .navLinks { grid-column: 2; grid-row: 2; gap: 4px; justify-content: flex-end; }
   .navBtn { padding: 8px; }
   .navBtn span { display: none; }
-  .rewardBtn { padding: 7px 10px; font-size: 0.78rem; gap: 5px; } /* Alterado: texto do botão continua visível no mobile */
+  .rewardBtn { padding: 7px 10px; font-size: 0.78rem; gap: 5px; } 
 }
 
-/* Alterado: ajustes para telas bem estreitas (320px) */
 @media (max-width: 360px) {
   .userIcon { display: none; }
   .greetingBox { padding: 5px 10px; font-size: 0.78rem; }
@@ -40,7 +39,6 @@
   .rewardBtn { padding: 7px 8px; font-size: 0.74rem; }
 }
 
-/* Alterado: em telas muito baixas (ex.: 420px de altura) o header deixa de ser fixo para não ocupar a tela */
 @media (max-height: 480px) {
   .header { position: static; }
 }

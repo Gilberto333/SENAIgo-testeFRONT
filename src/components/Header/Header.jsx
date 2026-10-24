@@ -10,7 +10,7 @@ const Header = ({ usuario = { nome: 'teste' }, areasVisitadas = 0, totalAreas = 
         {/* Logo SENAIgo */}
         <Link to="/" className={styles.logoLink}>
           <div className={styles.logoIconBox}>
-            <Gamepad2 size={22} color="#ffffff" />
+            <Gamepad2 size={20} color="#ffffff" />
           </div>
           <span className={styles.logoText}>
             SENAI<span className={styles.logoHighlight}>go</span>
@@ -33,19 +33,19 @@ const Header = ({ usuario = { nome: 'teste' }, areasVisitadas = 0, totalAreas = 
 
           {/* Saldo de Pontos */}
           <div className={styles.pointsBadge}>
-            <Trophy size={18} />
+            <Trophy size={16} />
             <span><strong>{pontos} pts</strong></span>
           </div>
 
-          {/* Alterado: adicionado o texto "Resgatar Prêmios" e ícone de presente em destaque */}
+          {/* Alterado: adicionado o texto "Resgatar Prêmios" com suporte a responsividade */}
           <Link to="/loja" className={styles.btnResgatar}>
-            <Gift size={18} />
-            <span>Resgatar Prêmios</span>
+            <Gift size={16} />
+            <span className={styles.btnText}>Resgatar Prêmios</span>
           </Link>
 
           {/* Sair / Logout */}
           <button onClick={onLogout} className={styles.btnLogout} title="Sair">
-            <LogOut size={20} />
+            <LogOut size={18} />
           </button>
         </div>
       </div>

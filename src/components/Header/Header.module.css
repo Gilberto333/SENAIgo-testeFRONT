@@ -11,13 +11,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logoIconBox {
@@ -30,7 +32,7 @@
 }
 
 .logoText {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: #1e2b4f;
   letter-spacing: -0.5px;
@@ -44,7 +46,7 @@
 .actionsGroup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .infoBadge {
@@ -52,10 +54,11 @@
   align-items: center;
   gap: 8px;
   background-color: #f1f5f9;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #1e2b4f;
+  white-space: nowrap;
 }
 
 .pinIcon {
@@ -65,29 +68,30 @@
 .pointsBadge {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background-color: #fef08a;
   color: #854d0e;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
-/* Alterado: melhorado o visual do acesso à loja com destaque em gradiente e botão arredondado */
 .btnResgatar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: linear-gradient(135deg, #d9531e, #8c2f12);
   color: #ffffff;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(217, 83, 30, 0.25);
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .btnResgatar:hover {
@@ -105,14 +109,78 @@
   padding: 6px;
   border-radius: 8px;
   transition: background-color 0.2s;
+  flex-shrink: 0;
 }
 
 .btnLogout:hover {
   background-color: #fef2f2;
 }
 
-@media (max-width: 768px) {
+/* Alterado: melhorada a responsividade para telas medias e pequenas (tablets e smartphones) */
+@media (max-width: 840px) {
   .infoBadge {
-    display: none;
+    display: none; /* Oculta saudações secundárias para economizar espaço mantendo as ações principais */
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContainer {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .logoText {
+    font-size: 1.15rem;
+  }
+
+  .logoIconBox {
+    padding: 6px;
+  }
+
+  .actionsGroup {
+    gap: 6px;
+  }
+
+  .pointsBadge {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .btnResgatar {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Alterado: ajustes finos para telas muito estreitas (base 320px) */
+@media (max-width: 360px) {
+  .headerContainer {
+    padding: 6px 8px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .logoIconBox {
+    padding: 4px;
+  }
+
+  .actionsGroup {
+    gap: 4px;
+  }
+
+  .pointsBadge {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+  }
+
+  .btnResgatar {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+  }
+
+  .btnText {
+    font-size: 0.7rem;
   }
 }

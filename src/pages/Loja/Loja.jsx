@@ -30,7 +30,7 @@ const Loja = () => {
     } catch (err) {
       setFeedback({ variant: 'error', message: err.message });
     } finally {
-      // Mesmo em caso de erro, saldo, estoque e histórico são relidos da API para refletir o estado real.
+      
       await Promise.allSettled([atualizarSaldo(), recarregarProdutos({ silencioso: true }), recarregarResgates()]);
       setResgatando(false);
       setProdutoSelecionado(null);

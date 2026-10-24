@@ -3,13 +3,15 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useProgresso } from '../../hooks/useProgresso';
 import Logo from '../Logo/Logo';
-import { Gift, Trophy, User, Settings } from 'lucide-react'; 
+import { Gift, ArrowLeft, Trophy, User, Settings } from 'lucide-react'; // Alterado: adicionado ArrowLeft (ícone do botão "Voltar")
 import styles from './Header.module.css';
 
 const Header = () => {
   const { user, isAdmin } = useAuth(); 
   const { saldo } = useProgresso(); 
   const location = useLocation();
+
+  const isLoja = location.pathname === '/loja';
 
   return (
     <header className={styles.header}>
@@ -24,9 +26,15 @@ const Header = () => {
           <nav className={styles.navLinks}>
             {isAdmin && <Link to="/admin/loja" aria-label="Gerenciar" className={`${styles.navBtn} ${location.pathname.startsWith('/admin') ? styles.active : ''}`}><Settings size={18} /><span>Gerenciar</span></Link>}
           
-            <Link to="/loja" aria-label="Resgatar Prêmios" className={`${styles.rewardBtn} ${location.pathname === '/loja' ? styles.rewardActive : ''}`}>
-              <Gift size={18} className={styles.rewardIcon} />
-              <span>Resgatar Prêmios</span>
+            <Link
+              to={isLoja ? '/home' : '/loja'}
+              aria-label={isLoja ? 'Voltar' : 'Resgatar Prêmios'}
+              className={`${styles.rewardBtn} ${isLoja ? styles.backBtn : ''}`}
+            >
+              {isLoja
+                ? <ArrowLeft size={18} className={styles.rewardIcon} />
+                : <Gift size={18} className={styles.rewardIcon} />}
+              <span>{isLoja ? 'Voltar' : 'Resgatar Prêmios'}</span>
             </Link>
             
           </nav>

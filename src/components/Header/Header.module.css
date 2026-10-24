@@ -15,7 +15,11 @@
 
 .rewardBtn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.9rem; font-weight: 600; white-space: nowrap; color: #ffffff; background-color: var(--primary-blue); transition: all 0.2s; }
 .rewardIcon { color: #FDE68A; flex-shrink: 0; }
-.rewardBtn:hover, .rewardActive { background-color: var(--terracotta); }
+.rewardBtn:hover { background-color: var(--terracotta); } 
+
+.rewardBtn.backBtn { background-color: #D97706; }
+.rewardBtn.backBtn:hover { background-color: #B45309; }
+.backBtn .rewardIcon { color: #ffffff; }
 
 
 @media (max-width: 768px) {

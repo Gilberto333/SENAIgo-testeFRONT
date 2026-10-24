@@ -98,7 +98,7 @@ const Home = () => {
                     <div className={styles.statusIndicator}>
                       <span>Status: </span>
                       <span className={isVisited ? styles.statusVisited : styles.statusPending}>
-                        {isVisited ? 'Visitado ✔️' : 'Não visitado'}
+                        {isVisited ? 'Visitado ' : 'Não visitado'}
                       </span>
                     </div>
                   </div>

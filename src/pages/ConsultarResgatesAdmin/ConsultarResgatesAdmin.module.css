@@ -13,7 +13,7 @@
   margin-top: 24px;
   margin-bottom: 20px;
   font-size: 1.5rem;
-  color: #005ca9; /* Azul identidade SENAI */
+  color: #005ca9; 
   font-weight: 700;
 }
 
@@ -58,7 +58,7 @@
 .button {
   padding: 10px 24px;
   height: 42px;
-  background-color: #005ca9; /* Azul SENAI */
+  background-color: #005ca9; 
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -80,7 +80,7 @@
 .errorAlert {
   padding: 12px 16px;
   background-color: #fde8e8;
-  color: #e30613; /* Vermelho SENAI */
+  color: #e30613; 
   border: 1px solid #f8b4b4;
   border-radius: 6px;
   margin-bottom: 20px;
@@ -166,7 +166,7 @@
 }
 
 .pontosBadge {
-  background-color: #e30613; /* Vermelho SENAI */
+  background-color: #e30613; 
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 700;

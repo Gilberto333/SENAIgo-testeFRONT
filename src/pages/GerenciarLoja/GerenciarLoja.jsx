@@ -23,7 +23,6 @@ const GerenciarLoja = () => {
   const abrirEdicao = (produto) => { setProdutoEmEdicao(produto); setFormAberto(true); };
   const fecharForm = () => setFormAberto(false);
 
-  // Erros são lançados de volta para o formulário exibir a mensagem da API.
   const handleSalvar = async (dados) => {
     const resposta = produtoEmEdicao ? await atualizar(produtoEmEdicao.id, dados) : await cadastrar(dados);
     setFeedback({ variant: 'success', message: resposta.sucesso });

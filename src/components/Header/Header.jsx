@@ -1,4 +1,5 @@
 import React from 'react';
+   import { useAuth } from '../../hooks/useAuth';
 import { Link, useLocation } from 'react-router-dom';
 import { useProgresso } from '../../hooks/useProgresso';
 import Logo from '../Logo/Logo';

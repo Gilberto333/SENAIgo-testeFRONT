@@ -1,4 +1,3 @@
-// Lê o conteúdo (payload) do token apenas para exibir dados da sessão. A validação real é feita pela API.
 export const decodeToken = (token) => {
   try {
     const base64 = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');

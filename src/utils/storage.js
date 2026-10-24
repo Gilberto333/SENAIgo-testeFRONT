@@ -1,4 +1,3 @@
-// O navegador guarda apenas o token da sessão; todos os dados vêm da API.
 const TOKEN_KEY = 'token';
 
 export const getToken = () => {

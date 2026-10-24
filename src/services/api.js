@@ -19,7 +19,6 @@ const FALLBACK_MESSAGES = {
   500: 'Erro interno no servidor. Tente novamente em instantes.',
 };
 
-// A API responde { erro: "..." } ou { erros: ["...", "..."] }.
 const extractMessage = (data, status) => {
   if (data?.erro) return data.erro;
   if (Array.isArray(data?.erros) && data.erros.length) return data.erros.join(' ');
@@ -37,7 +36,6 @@ const toApiError = (error) => {
   return new ApiError('Não foi possível conectar ao servidor. Verifique sua conexão e tente novamente.');
 };
 
-// Registrado pelo AuthContext para encerrar a sessão quando a API recusar o token.
 let onUnauthorized = null;
 export const setUnauthorizedHandler = (handler) => { onUnauthorized = handler; };
 
